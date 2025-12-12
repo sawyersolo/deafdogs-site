@@ -265,8 +265,8 @@ button {
 .hero-main-title {
   font-size: clamp(2.2rem, 6vw, 3.5rem);
   font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-transform: lowercase;
 }
 
 .hero-tagline {
@@ -829,5 +829,107 @@ body::before {
     background-position: center top !important;
     width: 100vw;
     height: 100vh;
+  }
+}
+
+
+/* ===== Scroll + Single Page ===== */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Navigation ===== */
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  backdrop-filter: blur(12px);
+}
+
+/* ===== Section Layout ===== */
+.page-section {
+  min-height: 100vh;
+  padding: clamp(3rem, 6vw, 6rem) 1.5rem;
+  scroll-margin-top: 80px;
+}
+
+/* ===== Editorial Desktop Overrides ===== */
+@media (min-width: 1024px) {
+  .page-section {
+    min-height: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+  }
+
+  h1 {
+    font-size: 3.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    max-width: 60ch;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .page-section + .page-section {
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+}
+
+/* ===== Editorial Albums Layout ===== */
+@media (min-width: 1024px) {
+  .albums-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 4rem;
+    align-items: start;
+  }
+}
+/* ===== HERO TEXT BACKDROP PLATE ===== */
+.hero {
+  position: relative;
+  isolation: isolate;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -1.25rem;
+  bottom: -1.25rem;
+
+  /* 👇 shift left */
+  left: -3.5rem;
+  right: -1.25rem;
+
+  background-image: url("/src/assets/hero-texture.png");
+  background-size: cover;
+  background-position: left;
+  background-repeat: no-repeat;
+
+  opacity: 0.9;
+  z-index: -1;
+  border-radius: 28px;
+}
+
+.hero > * {
+  position: relative;
+  z-index: 1;
+}
+@media (max-width: 768px) {
+  .hero::before {
+    inset: -0.75rem;
+    opacity: 0.95;
+    border-radius: 22px;
   }
 }

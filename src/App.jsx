@@ -1,28 +1,31 @@
-import { Routes, Route, useLocation } from 'react-router-dom'
-import Layout from './components/Layout.jsx'
-import Home from './pages/Home.jsx'
-import Photos from './pages/Photos.jsx'
-import Albums from './pages/Albums.jsx'
-import Tour from './pages/Tour.jsx'
-import Merch from './pages/Merch.jsx'
-import Press from './pages/Press.jsx'
-import PageTransition from './components/PageTransition.jsx'
+import Home from "./pages/Home";
+import Music from "./pages/Music";
+import Press from "./pages/Press";
 
-export default function App() {
-  const location = useLocation()
-
+function App() {
   return (
-    <Layout>
-      <PageTransition locationKey={location.pathname}>
-        <Routes location={location}>
-          <Route path="/" element={<Home />} />
-          <Route path="/photos" element={<Photos />} />
-          <Route path="/music" element={<Albums />} />
-          <Route path="/tour" element={<Tour />} />
-          <Route path="/merch" element={<Merch />} />
-          <Route path="/press" element={<Press />} />
-        </Routes>
-      </PageTransition>
-    </Layout>
-  )
+    <>
+      <nav className="site-nav">
+        <a href="#home">Home</a>
+        <a href="#music">Music</a>
+        <a href="#epk">EPK</a>
+      </nav>
+
+      <main>
+        <section id="home" className="page-section">
+          <Home />
+        </section>
+
+        <section id="music" className="page-section">
+          <Music />
+        </section>
+
+        <section id="epk" className="page-section">
+          <Press />
+        </section>
+      </main>
+    </>
+  );
 }
+
+export default App;
