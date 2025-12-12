@@ -28,7 +28,7 @@ export default function Home() {
               transition: 'transform 0.1s linear',
             }}
           >
-            <div className="hero-main-title">Deaf Dogs</div>
+            <div className="hero-main-title">deaf dogs</div>
             <p className="hero-tagline">
               A rock band from Vancouver, BC, building songs out of interlocking guitars,
               heavy melodies and slow-burning tension. Music for late buses, wet streets

@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Pirata+One&display=swap');
+/* --- DISPLAY FONT: PIRATA ONE --- */
+.hero-main-title,
+.section-heading,
+.nav-logo,
+h1,
+h2 {
+  font-family: 'Pirata One', serif;
+  letter-spacing: 0.04em;
+}
+
 /* Base reset */
 *,
 *::before,
