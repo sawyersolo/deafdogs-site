@@ -12,3 +12,6 @@ node_modules/.vite/
 
 #environment variables
 .env
+
+#public/gallery.jsx
+public/gallery.json
