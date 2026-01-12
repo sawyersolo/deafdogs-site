@@ -1,16 +1,31 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useTheme } from '../theme/ThemeContext.jsx';
+import rainVideo from '../assets/rain.mp4';
 import '../styles.css';
 
 export default function Layout({ children }) {
   const { theme, toggle } = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
 
-  const modeLabel = theme === 'colossus' ? 'Colossus mode' : 'Stringbreaker mode';
-
   return (
     <>
+      {/* Global background video */}
+      <video
+        className="bg-video"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="metadata"
+        aria-hidden="true"
+      >
+        <source src={rainVideo} type="video/mp4" />
+      </video>
+
+      {/* Optional overlay for contrast */}
+      <div className="bg-video-overlay" />
+
       <header>
         <div className="navbar">
           <div className="nav-main">
@@ -18,22 +33,25 @@ export default function Layout({ children }) {
               DEAF DOGS
             </div>
 
-            {/* Desktop nav */}
             <nav className="nav-links" aria-label="Main navigation">
               <Link to="/">Home</Link>
-              <Link to="/photos">Photos</Link>
               <Link to="/music">Music</Link>
-              <Link to="/tour">Tour</Link>
-              <Link to="/merch">Merch</Link>
+              <Link to="/merch">Merch</Link>        
+              <Link to="/photos">Photos</Link>      
               <Link to="/press">Press</Link>
             </nav>
 
-            {/* Desktop actions (theme toggle only) */}
             <div className="nav-actions">
-              <a href="https://instagram.com/deafdogshq" className="theme-toggle" target="_blank">Instagram</a>
+              <a
+                href="https://instagram.com/deafdogshq"
+                className="theme-toggle"
+                target="_blank"
+                rel="noreferrer"
+              >
+                Instagram
+              </a>
             </div>
 
-            {/* Hamburger for mobile */}
             <button
               type="button"
               className="hamburger"
@@ -47,7 +65,6 @@ export default function Layout({ children }) {
           </div>
         </div>
 
-        {/* Mobile menu (slide-down) */}
         <div className={`mobile-menu ${mobileOpen ? 'open' : ''}`}>
           <Link to="/" onClick={() => setMobileOpen(false)}>Home</Link>
           <Link to="/photos" onClick={() => setMobileOpen(false)}>Photos</Link>

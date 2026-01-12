@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useTheme } from '../theme/ThemeContext'
 import { useNavigate } from 'react-router-dom'
 
+
 export default function Home() {
   const [scrollY, setScrollY] = useState(0)
   const navigate = useNavigate()
@@ -35,7 +36,7 @@ export default function Home() {
               and the moment you realise you&apos;re not going back.
             </p>
             <div className="hero-cta-row">
-              <button className="btn-bright" onClick={() => navigate('/music')}>
+              <button className="btn-bright" onClick={() => navigate('/music#music')}>
                 {theme === 'colossus' ? '▶ Listen to Colossus' : '▶ Listen to Stringbreaker'}
               </button>
               <button className="btn-soft" onClick={() => navigate('/tour')}>
@@ -110,7 +111,7 @@ export default function Home() {
               Hoodies, shirts and prints built around the Stringbreaker visual world.
               Limited runs, meant to feel like you grabbed them off the stage.
             </p>
-            <button className="btn-soft" onClick={() => navigate('/merch')}>
+            <button className="btn-soft" onClick={() => navigate('/#merch')}>
               Open merch store
             </button>
           </div>
